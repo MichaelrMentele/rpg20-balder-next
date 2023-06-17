@@ -1,10 +1,9 @@
 /**
  * Landing page for marketting.
- * 
+ *
  * Links to the tutorial, app, demo, and login.
  */
-import Image from 'next/image'
-import Link from 'next/link'
+import Link from "next/link"
 
 export default function Home() {
   return (

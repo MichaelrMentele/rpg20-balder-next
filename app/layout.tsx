@@ -1,7 +1,7 @@
 import "./globals.css"
 import { Inter } from "next/font/google"
 import Providers from "./providers"
-import ThemeSwitch from "./components/ThemeSwitch"
+import ThemeSwitch from "@/components/ThemeSwitch"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className}`}>
+      <body className={`p-2 ${inter.className}`}>
         <Providers>
           <ThemeSwitch />
           {children}

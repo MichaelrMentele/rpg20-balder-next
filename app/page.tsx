@@ -1,14 +1,17 @@
+"use client"
 /**
  * Landing page for marketting.
  *
  * Links to the tutorial, app, demo, and login.
  */
-import Link from "next/link"
-
+import { useTheme } from "next-themes"
 export default function Home() {
+  const { theme, setTheme } = useTheme()
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <Link href="/tutorial">Tutorial</Link>
-    </main>
+    <div>
+      <h1 className="text-3xl text-pink-500" css={{ backgroundColor: "teal" }}>
+        Welcome to Your App
+      </h1>
+    </div>
   )
 }

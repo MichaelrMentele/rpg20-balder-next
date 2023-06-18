@@ -12,27 +12,36 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { useRouter } from "next/router"
+import Link from "next/link"
 
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
-export type Payment = {
+export type Encounter = {
   id: string
-  amount: number
-  status: "pending" | "processing" | "success" | "failed"
-  email: string
+  name: string
+  participants: string[]
 }
 
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<Encounter>[] = [
+  {
+    accessorKey: "name",
+    header: () => <div>Name</div>,
+    cell: ({ row }) => {
+      return <Link href={`/encounters/${row.original.id}`}>{row.name}</Link>
+    },
+  },
   {
     accessorKey: "participants",
     header: () => <div>Participants</div>,
     cell: ({ row }) => {
-      return <div className="font-medium">List of participants here</div>
+      return <div>Particpants</div>
     },
   },
   {
     id: "actions",
-    header: () => (
+    header: ({ column }) => (
+      // TODO: how to add onclick event to button?
       <div className="text-right">
         <Button>Add</Button>
       </div>
